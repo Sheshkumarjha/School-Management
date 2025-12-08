@@ -1,0 +1,66 @@
+{% extends 'Home/base.html' %}
+{% load static %}
+{% block body %}
+<div class="page-wrapper">
+    <div class="content container-fluid">
+        <div class="page-header">
+            <div class="row align-items-center">
+                <div class="col">
+                    <h3 class="page-title">Add Hostel Room</h3>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{% url 'index' %}">Dashboard</a></li>
+                        <li class="breadcrumb-item"><a href="{% url 'hostel_list' %}">Hostel</a></li>
+                        <li class="breadcrumb-item active">Add Room</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-8 col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <form method="POST">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label>Room Number</label>
+                                <input type="text" name="room_number" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Student Name</label>
+                                <input type="text" name="student_name" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Check-in Date</label>
+                                <input type="date" name="check_in_date" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Check-out Date</label>
+                                <input type="date" name="check_out_date" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>Fee</label>
+                                <input type="number" name="fee" class="form-control" step="0.01" required>
+                            </div>
+                            <div class="text-right">
+                                <button type="submit" class="btn btn-primary">Add Room</button>
+                                <a href="{% url 'hostel_list' %}" class="btn btn-secondary">Cancel</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Copyright &copy; 2025 KumarJha.</p>
+    </footer>
+</div>
+
+<script src="{% static 'assets/js/jquery-3.6.0.min.js' %}"></script>
+<script src="{% static 'assets/js/popper.min.js' %}"></script>
+<script src="{% static 'assets/plugins/bootstrap/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'assets/js/script.js' %}"></script>
+
+{% endblock %}

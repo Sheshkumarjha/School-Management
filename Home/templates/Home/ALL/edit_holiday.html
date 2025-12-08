@@ -1,0 +1,57 @@
+{% extends 'Home/base.html' %}
+{% load static %}
+
+{% block body %}
+<div class="page-wrapper">
+    <div class="content container-fluid">
+        <div class="page-header">
+            <div class="row align-items-center">
+                <div class="col">
+                    <h3 class="page-title">Edit Holiday</h3>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{% url 'holiday_list' %}">Holiday List</a></li>
+                        <li class="breadcrumb-item active">Edit Holiday</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <form method="POST">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label>Holiday Name</label>
+                                <input type="text" name="name" class="form-control" value="{{ holiday.name }}" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Start Date</label>
+                                <input type="date" name="start_date" class="form-control" value="{{ holiday.start_date|date:'Y-m-d' }}" required>
+                            </div>
+                            <div class="form-group">
+                                <label>End Date</label>
+                                <input type="date" name="end_date" class="form-control" value="{{ holiday.end_date|date:'Y-m-d' }}" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Description</label>
+                                <textarea name="description" class="form-control">{{ holiday.description }}</textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Update Holiday</button>
+                            <a href="{% url 'holiday_list' %}" class="btn btn-secondary">Cancel</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="{%static 'assets/js/jquery-3.6.0.min.js' %}"></script>
+<script src="{%static 'assets/js/popper.min.js' %}"></script>
+<script src="{%static 'assets/plugins/bootstrap/js/bootstrap.min.js' %}"></script>
+<script src="{%static 'assets/plugins/slimscroll/jquery.slimscroll.min.js' %}"></script>
+<script src="{%static 'assets/plugins/apexchart/apexcharts.min.js' %}"></script>
+<script src="{%static 'assets/plugins/apexchart/chart-data.js' %}"></script>
+<script src="{%static 'assets/js/script.js' %}"></script>
+{% endblock %}

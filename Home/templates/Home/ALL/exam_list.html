@@ -1,0 +1,72 @@
+{% extends 'Home/base.html' %}
+{% load static %}
+
+{% block body %}
+<div class="page-wrapper">
+    <div class="content container-fluid">
+        <div class="page-header">
+            <div class="row align-items-center">
+                <div class="col">
+                    <h3 class="page-title">Exam List</h3>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item active">Exams</li>
+                    </ul>
+                </div>
+                <div class="col-auto text-right float-right ml-auto">
+                    <a href="{% url 'add_exam' %}" class="btn btn-primary"><i class="fas fa-plus"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card card-table">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover table-center mb-0 datatable">
+                                <thead>
+                                    <tr>
+                                        <th>Exam Name</th>
+                                        <th>Exam Date</th>
+                                        <th>Subject</th>
+                                        <th>Duration</th>
+                                        <th>Location</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for exam in exams %}
+                                    <tr>
+                                        <td>{{ exam.exam_name }}</td>
+                                        <td>{{ exam.exam_date|date:"d M Y" }}</td>
+                                        <td>{{ exam.subject }}</td>
+                                        <td>{{ exam.duration }}</td>
+                                        <td>{{ exam.location|default:"N/A"|truncatechars:10 }}</td>
+                                    </tr>
+                                    {% empty %}
+                                    <tr>
+                                        <td colspan="7" class="text-center">No exams available.</td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Copyright © 2025 KumarJha.</p>
+    </footer>
+</div>
+
+<script src="{%static 'assets/js/jquery-3.6.0.min.js' %}"></script>
+<script src="{%static 'assets/js/popper.min.js' %}"></script>
+<script src="{%static 'assets/plugins/bootstrap/js/bootstrap.min.js' %}"></script>
+<script src="{%static 'assets/plugins/slimscroll/jquery.slimscroll.min.js' %}"></script>
+<script src="{%static 'assets/plugins/apexchart/apexcharts.min.js' %}"></script>
+<script src="{%static 'assets/plugins/apexchart/chart-data.js' %}"></script>
+<script src="{%static 'assets/js/script.js' %}"></script>
+
+{% endblock %}

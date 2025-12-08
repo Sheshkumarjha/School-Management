@@ -1,0 +1,73 @@
+{% extends 'Home/base.html' %}
+{% load static %}
+{% block body %}
+<div class="page-wrapper">
+    <div class="content container-fluid">
+        <div class="page-header">
+            <div class="row align-items-center">
+                <div class="col">
+                    <h3 class="page-title">Add New Book</h3>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{% url 'library_list' %}">Library</a></li>
+                        <li class="breadcrumb-item active">Add Book</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <div class="card">
+                    <div class="card-body">
+                        <form method="POST">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label>Book Title</label>
+                                <input type="text" name="book_title" class="form-control" placeholder="Enter book title" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Author</label>
+                                <input type="text" name="author" class="form-control" placeholder="Enter author name" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Publication Date</label>
+                                <input type="date" name="publication_date" class="form-control" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label>ISBN</label>
+                                <input type="text" name="isbn" class="form-control" placeholder="Enter ISBN" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Availability</label>
+                                <select name="availability" class="form-control" required>
+                                    <option value="True">Available</option>
+                                    <option value="False">Not Available</option>
+                                </select>
+                            </div>
+
+                            <div class="text-right">
+                                <button type="submit" class="btn btn-primary">Add Book</button>
+                                <a href="{% url 'library_list' %}" class="btn btn-secondary">Cancel</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Copyright © 2025 KumarJha.</p>
+    </footer>
+</div>
+
+<script src="{% static 'assets/js/jquery-3.6.0.min.js' %}"></script>
+<script src="{% static 'assets/js/popper.min.js' %}"></script>
+<script src="{% static 'assets/plugins/bootstrap/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'assets/js/script.js' %}"></script>
+
+{% endblock %}

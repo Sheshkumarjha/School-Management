@@ -1,0 +1,62 @@
+{% extends 'Home/base.html' %}
+{% load static %}
+{% block body %}
+
+<div class="page-wrapper">
+    <div class="content container-fluid">
+        <div class="page-header">
+            <div class="row align-items-center">
+                <div class="col">
+                    <h3 class="page-title">Teacher Details</h3>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{% url 'teacher_list' %}">Teachers</a></li>
+                        <li class="breadcrumb-item active">{{ teacher.first_name }} {{ teacher.last_name }}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-4 text-center">
+                                {% if teacher.profile_picture %}
+                                <img src="{{ teacher.profile_picture.url }}" alt="Profile Picture" class="img-fluid rounded-circle" width="200">
+                                {% else %}
+                                    <img src="{% static 'assets/img/profiles/avatar-01.jpg' %}" alt="Default Profile" class="img-fluid rounded-circle" width="200">
+                                {% endif %}
+                            </div>
+                            <div class="col-md-8">
+                                <h4>{{ teacher.first_name }} {{ teacher.last_name }}</h4>
+                                <p><strong>Email:</strong> {{ teacher.email }}</p>
+                                <p><strong>Phone:</strong> {{ teacher.phone_number }}</p>
+                                <p><strong>Gender:</strong> {{ teacher.get_gender_display }}</p>
+                                <p><strong>Date of Birth:</strong> {{ teacher.date_of_birth }}</p>
+                                <p><strong>Subject:</strong> {{ teacher.subject }}</p>
+                                <p><strong>Years of Experience:</strong> {{ teacher.years_of_experience }}</p>
+                                <p><strong>Department:</strong> {{ teacher.department.name }}</p>
+                                <p><strong>Date Joined:</strong> {{ teacher.date_joined }}</p>
+                            </div>
+                        </div>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="{% static 'assets/js/jquery-3.6.0.min.js' %}"></script>
+<script src="{% static 'assets/js/popper.min.js' %}"></script>
+<script src="{% static 'assets/plugins/bootstrap/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'assets/plugins/slimscroll/jquery.slimscroll.min.js' %}"></script>
+<script src="{% static 'assets/plugins/apexchart/apexcharts.min.js' %}"></script>
+<script src="{% static 'assets/plugins/apexchart/chart-data.js' %}"></script>
+<script src="{% static 'assets/plugins/simple-calendar/jquery.simple-calendar.js' %}"></script>
+<script src="{% static 'assets/js/calander.js' %}"></script>
+<script src="{% static 'assets/js/circle-progress.min.js' %}"></script>
+<script src="{% static 'assets/js/script.js' %}"></script>
+
+{% endblock %}

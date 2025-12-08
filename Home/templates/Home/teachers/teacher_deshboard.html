@@ -1,0 +1,205 @@
+{% extends 'Home/base.html' %}
+{% load static %}
+{% block body %}
+
+<div class="page-wrapper">
+    <div class="content container-fluid">
+
+        <div class="page-header">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h3 class="page-title">Welcome Teacher KumarJha</h3>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{% url 'index' %}">Dashboard</a></li>
+                        <li class="breadcrumb-item active">Teacher Dashboard</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xl-3 col-sm-6 col-12 d-flex">
+                <div class="card bg-nine w-100">
+                    <div class="card-body">
+                        <div class="db-widgets d-flex justify-content-between align-items-center">
+                            <div class="db-icon">
+                                <i class="fas fa-book-open"></i>
+                            </div>
+                            <div class="db-info">
+                                <h3>12</h3>
+                                <h6>Total Courses</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-3 col-sm-6 col-12 d-flex">
+                <div class="card bg-six w-100">
+                    <div class="card-body">
+                        <div class="db-widgets d-flex justify-content-between align-items-center">
+                            <div class="db-icon">
+                                <i class="fas fa-tasks"></i>
+                            </div>
+                            <div class="db-info">
+                                <h3>50</h3>
+                                <h6>Total Assignments</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-3 col-sm-6 col-12 d-flex">
+                <div class="card bg-ten w-100">
+                    <div class="card-body">
+                        <div class="db-widgets d-flex justify-content-between align-items-center">
+                            <div class="db-icon">
+                                <i class="fas fa-clipboard-list"></i>
+                            </div>
+                            <div class="db-info">
+                                <h3>40</h3>
+                                <h6>Tests Conducted</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-3 col-sm-6 col-12 d-flex">
+                <div class="card bg-eleven w-100">
+                    <div class="card-body">
+                        <div class="db-widgets d-flex justify-content-between align-items-center">
+                            <div class="db-icon">
+                                <i class="fas fa-user-check"></i>
+                            </div>
+                            <div class="db-info">
+                                <h3>30</h3>
+                                <h6>Students Managed</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 col-lg-12 col-xl-9">
+                <div class="card flex-fill">
+                    <div class="card-header">
+                        <div class="row align-items-center">
+                            <div class="col-6">
+                                <h5 class="card-title">Upcoming Classes</h5>
+                            </div>
+                            <div class="col-6">
+                                <span class="float-right view-link"><a href="#">View All Courses</a></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-lg-6 col-xl-6 dash-widget3">
+                            <div class="card-body dash-widget1">
+                                <div class="circle-bar circle-bar2">
+                                    <div class="circle-graph2" data-percent="80">
+                                        <b>80%</b>
+                                    </div>
+                                    <h6>Classes Conducted</h6>
+                                    <h4>18 <span>/ 20</span></h4>
+                                </div>
+                                <div class="dash-details">
+                                    <h4>Django 101</h4>
+                                    <ul>
+                                        <li><i class="fas fa-clock"></i> 9.00am - 10.30am</li>
+                                        <li><i class="fas fa-book-open"></i> 10 Lessons</li>
+                                        <li><i class="fas fa-hourglass-end"></i> 90 Minutes</li>
+                                        <li><i class="fas fa-clipboard-check"></i> 5 Assignments</li>
+                                    </ul>
+                                    <div class="dash-btn">
+                                        <button type="submit" class="btn btn-info btn-border">Skip</button>
+                                        <button type="submit" class="btn btn-info">Continue</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6 col-xl-6 dash-widget4">
+                            <div class="card-body dash-widget1 dash-widget2">
+                                <div class="circle-bar circle-bar3">
+                                    <div class="circle-graph3" data-percent="90">
+                                        <b>90%</b>
+                                    </div>
+                                    <h6>Classes Scheduled</h6>
+                                    <h4>19 <span>/ 20</span></h4>
+                                </div>
+                                <div class="dash-details">
+                                    <h4>Python 101</h4>
+                                    <ul>
+                                        <li><i class="fas fa-clock"></i> 10.30am - 12.00pm</li>
+                                        <li><i class="fas fa-book-open"></i> 8 Lessons</li>
+                                        <li><i class="fas fa-hourglass-end"></i> 90 Minutes</li>
+                                        <li><i class="fas fa-clipboard-check"></i> 4 Assignments</li>
+                                    </ul>
+                                    <div class="dash-btn">
+                                        <button type="submit" class="btn btn-info btn-border">Skip</button>
+                                        <button type="submit" class="btn btn-info">Continue</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-lg-12 col-xl-3 d-flex">
+                <div class="card flex-fill">
+                    <div class="card-header">
+                        <div class="row align-items-center">
+                            <div class="col-12">
+                                <h5 class="card-title">Calendar</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div id="calendar-teacher" class="calendar-container"></div>
+                        <div class="calendar-info calendar-info1">
+                            <div class="calendar-details">
+                                <p>09 am</p>
+                                <h6 class="calendar-blue d-flex justify-content-between align-items-center">Django 101 <span>09am - 10am</span></h6>
+                            </div>
+                            <div class="calendar-details">
+                                <p>10 am</p>
+                                <h6 class="calendar-violet d-flex justify-content-between align-items-center">Python 101 <span>10am - 11am</span></h6>
+                            </div>
+                            <div class="calendar-details">
+                                <p>11 am</p>
+                                <h6 class="calendar-red d-flex justify-content-between align-items-center">Break <span>11am - 11.30am</span></h6>
+                            </div>
+                            <div class="calendar-details">
+                                <p>12 pm</p>
+                                <h6 class="calendar-orange d-flex justify-content-between align-items-center">FastApi 101 <span>12pm - 1pm</span></h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>Copyright © 2025 KumarJha.</p>
+    </footer>
+
+</div>
+
+<script src="{% static 'assets/js/jquery-3.6.0.min.js' %}"></script>
+<script src="{% static 'assets/js/popper.min.js' %}"></script>
+<script src="{% static 'assets/plugins/bootstrap/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'assets/plugins/slimscroll/jquery.slimscroll.min.js' %}"></script>
+<script src="{% static 'assets/plugins/apexchart/apexcharts.min.js' %}"></script>
+<script src="{% static 'assets/plugins/apexchart/chart-data.js' %}"></script>
+<script src="{% static 'assets/plugins/simple-calendar/jquery.simple-calendar.js' %}"></script>
+<script src="{% static 'assets/js/calander.js' %}"></script>
+<script src="{% static 'assets/js/circle-progress.min.js' %}"></script>
+<script src="{% static 'assets/js/script.js' %}"></script>
+
+{% endblock %}

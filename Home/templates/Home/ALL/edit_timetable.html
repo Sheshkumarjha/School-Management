@@ -1,0 +1,74 @@
+{% extends 'Home/base.html' %}
+{% load static %}
+{% block body %}
+
+<div class="page-wrapper">
+    <div class="content container-fluid">
+        <div class="page-header">
+            <div class="row">
+                <div class="col">
+                    <h3 class="page-title">Edit Timetable</h3>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{% url 'timetable_list' %}">Timetable</a></li>
+                        <li class="breadcrumb-item active">Edit Timetable</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <div class="card">
+                    <div class="card-body">
+                        <form method="POST">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label>Day of the Week</label>
+                                <input type="text" name="day_of_week" class="form-control" value="{{ timetable.day_of_week }}" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Start Time</label>
+                                <input type="time" name="start_time" class="form-control" value="{{ timetable.start_time|time:'H:i' }}" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label>End Time</label>
+                                <input type="time" name="end_time" class="form-control" value="{{ timetable.end_time|time:'H:i' }}" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Subject</label>
+                                <input type="text" name="subject" class="form-control" value="{{ timetable.subject }}" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Teacher</label>
+                                <input type="text" name="teacher" class="form-control" value="{{ timetable.teacher }}" required>
+                            </div>
+
+                            <div class="text-right">
+                                <button type="submit" class="btn btn-primary">Save Changes</button>
+                                <a href="{% url 'timetable_list' %}" class="btn btn-secondary">Cancel</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Copyright © 2025 KumarJha.</p>
+    </footer>
+</div>
+
+<script src="{%static 'assets/js/jquery-3.6.0.min.js' %}"></script>
+<script src="{%static 'assets/js/popper.min.js' %}"></script>
+<script src="{%static 'assets/plugins/bootstrap/js/bootstrap.min.js' %}"></script>
+<script src="{%static 'assets/plugins/slimscroll/jquery.slimscroll.min.js' %}"></script>
+<script src="{%static 'assets/plugins/apexchart/apexcharts.min.js' %}"></script>
+<script src="{%static 'assets/plugins/apexchart/chart-data.js' %}"></script>
+<script src="{%static 'assets/js/script.js' %}"></script>
+
+{% endblock %}

@@ -1,0 +1,76 @@
+{% extends 'Home/base.html' %}
+{% load static %}
+
+{% block body %}
+<div class="page-wrapper">
+    <div class="content container-fluid">
+        <div class="page-header">
+            <div class="row align-items-center">
+                <div class="col">
+                    <h3 class="page-title">Add Exam</h3>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{% url 'exam_list' %}">Exams</a></li>
+                        <li class="breadcrumb-item active">Add Exam</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <div class="card">
+                    <div class="card-body">
+                        <form action="{% url 'add_exam' %}" method="POST">
+                            {% csrf_token %}
+                            
+                            <div class="form-group">
+                                <label>Exam Name</label>
+                                <input type="text" class="form-control" name="exam_name" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Exam Date</label>
+                                <input type="date" class="form-control" name="exam_date" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Subject</label>
+                                <input type="text" class="form-control" name="subject" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Duration (HH:MM:SS)</label>
+                                <input type="text" class="form-control" name="duration" placeholder="e.g. 02:30:00" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Location</label>
+                                <input type="text" class="form-control" name="location">
+                            </div>
+
+                            <div class="text-right">
+                                <button type="submit" class="btn btn-primary">Add Exam</button>
+                                <a href="{% url 'exam_list' %}" class="btn btn-secondary">Cancel</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>Copyright © 2025 KumarJha.</p>
+    </footer>
+</div>
+
+<script src="{%static 'assets/js/jquery-3.6.0.min.js' %}"></script>
+<script src="{%static 'assets/js/popper.min.js' %}"></script>
+<script src="{%static 'assets/plugins/bootstrap/js/bootstrap.min.js' %}"></script>
+<script src="{%static 'assets/plugins/slimscroll/jquery.slimscroll.min.js' %}"></script>
+<script src="{%static 'assets/plugins/apexchart/apexcharts.min.js' %}"></script>
+<script src="{%static 'assets/plugins/apexchart/chart-data.js' %}"></script>
+<script src="{%static 'assets/js/script.js' %}"></script>
+
+{% endblock %}

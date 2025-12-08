@@ -1,0 +1,71 @@
+{% extends 'Home/base.html' %}
+{% load static %}
+{% block body %}
+
+<div class="page-wrapper">
+    <div class="content container-fluid">
+        <div class="page-header">
+            <div class="row align-items-center">
+                <div class="col">
+                    <h3 class="page-title">Expenses List</h3>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{% url 'add_expenses' %}">Add Expense</a></li>
+                        <li class="breadcrumb-item active">Expenses</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-body">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Expense</th>
+                                    <th>Amount</th>
+                                    <th>date_incurred</th>
+                                    <th>description</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for expense in expenses %}
+                                    <tr>
+                                        <td>{{ expense.expense_category }}</td>
+                                        <td>{{ expense.amount }}</td>
+                                        <td>{{ expense.date_incurred }}</td>
+                                        <td>{{ expense.description }}</td>
+                                        <td>
+                                            <a href="{% url 'edit_expenses' expense.id %}" class="btn btn-warning btn-sm"> <i class="fas fa-pen"></i></a>
+                                            <form action="{% url 'delate_expenses' expense.id %}" method="POST" style="display:inline;">
+                                                {% csrf_token %}
+                                                <button type="submit" class="btn btn-sm bg-danger-light" onclick="return confirm('Are you sure you want to delete this expense?');">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </form>
+                                        </td>
+                                       
+                                    </tr>
+                                {% empty %}
+                                    <tr>
+                                        <td colspan="5">No expense records available.</td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="{% static 'assets/js/jquery-3.6.0.min.js' %}"></script>
+<script src="{% static 'assets/js/popper.min.js' %}"></script>
+<script src="{% static 'assets/plugins/bootstrap/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'assets/plugins/slimscroll/jquery.slimscroll.min.js' %}"></script>
+<script src="{% static 'assets/js/script.js' %}"></script>
+
+{% endblock %}
